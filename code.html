@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Wearable PPG Blood Flow Monitoring Design</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+  html, body {
+    margin: 0; padding: 0; font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #2e3c5d, #4a6577);
+    color: #f0f0f0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  header {
+    padding: 1.5rem 1rem;
+    text-align: center;
+  }
+  header h1 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 2.5rem;
+    letter-spacing: 1.5px;
+  }
+  header p {
+    font-size: 1.15rem;
+    color: #cfd8dc;
+    max-width: 660px;
+    margin: 0.5rem auto 2rem;
+  }
+  main {
+    max-width: 900px;
+    width: 90vw;
+    background: #1f2937cc;
+    border-radius: 12px;
+    padding: 2rem 2.5rem;
+    box-shadow: 0 0 20px rgba(45, 68, 92, 0.7);
+  }
+  section {
+    margin-bottom: 2.5rem;
+  }
+  h2 {
+    font-weight: 700;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #4fc3f7;
+    display: inline-block;
+    padding-bottom: 0.25rem;
+    color: #81d4fa;
+  }
+  p {
+    line-height: 1.5;
+    font-size: 1.1rem;
+    color: #ccd6f6;
+  }
+
+  /* Block diagram container */
+  #diagram {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
+  .block {
+    background: #1e2733;
+    border-radius: 10px;
+    padding: 1rem 1.5rem;
+    width: 180px;
+    text-align: center;
+    box-shadow: 0 0 12px #2fc3f7aa;
+    margin: 10px;
+    position: relative;
+    color: #b0cee8;
+  }
+  .block h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.25rem;
+    color: #81d4fa;
+  }
+  /* Arrows between blocks */
+  .arrow {
+    width: 40px;
+    height: 2px;
+    background: #4fc3f7;
+    position: relative;
+    align-self: center;
+    margin: 0 10px;
+  }
+  .arrow::after {
+    content: '';
+    position: absolute;
+    right: -8px;
+    top: -5px;
+    border: 6px solid transparent;
+    border-left-color: #4fc3f7;
+  }
+  #diagram-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    margin-top: 2rem;
+  }
+
+  /* Simulation visualization */
+  #simulation {
+    text-align: center;
+    margin-top: 1rem;
+  }
+  #ppgCanvas {
+    background: #0d1a2c;
+    border-radius: 12px;
+    box-shadow: 0 0 15px #45a1ffaa;
+    margin: 1rem auto;
+    display: block;
+  }
+  .slider-container {
+    max-width: 400px;
+    margin: 1rem auto;
+    color: #a6c7ff;
+  }
+  input[type=range] {
+    width: 100%;
+    -webkit-appearance: none;
+    height: 6px;
+    background: #3d5879;
+    border-radius: 3px;
+    outline: none;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #82c9ff;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 2px solid #4fc3f7;
+    margin-top: -7px;
+    transition: background 0.3s ease;
+  }
+  input[type=range]::-webkit-slider-thumb:hover {
+    background: #a6d8ff;
+  }
+  input[type=range]:focus::-webkit-slider-thumb {
+    box-shadow: 0 0 10px #82c9ff88;
+  }
+  label {
+    font-weight: 600;
+    font-size: 1rem;
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  /* Footer */
+  footer {
+    margin-top: auto;
+    padding: 1rem 0;
+    color: #7a8fa3;
+    font-size: 0.9rem;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Wearable PPG Blood Flow Monitoring Design</h1>
+  <p>Conceptual design and interactive simulation of a wearable non-invasive blood flow monitoring device using a PPG sensor.</p>
+</header>
+
+<main>
+  <section>
+    <h2>Design Overview</h2>
+    <p>
+      Photoplethysmography (PPG) is an optical technique that measures volumetric changes in blood circulation. A wearable PPG device typically includes a light source (LED) that illuminates the skin
+      and a photodetector that measures changes in light absorption caused by pulsatile blood flow.
+    </p>
+    <p>
+      This device design ensures comfort and reliability by integrating flexible sensors positioned on the wrist or finger, with careful
+      opto-mechanical alignment of emitter and detector. The signals are then amplified, processed, and analyzed to extract heart rate and blood flow characteristics.
+    </p>
+  </section>
+
+  <section>
+    <h2>Block Diagram</h2>
+    <div id="diagram-row" aria-label="Block diagram of wearable PPG device">
+      <div class="block" id="block-skin">
+        <h3>Skin Tissue</h3>
+        <p>Illuminated by LED, light is absorbed & scattered by blood vessels.</p>
+      </div>
+      <div class="arrow" aria-hidden="true"></div>
+      <div class="block" id="block-led">
+        <h3>LED (Light Source)</h3>
+        <p>Emits green or infrared light into skin.</p>
+      </div>
+      <div class="arrow" aria-hidden="true"></div>
+      <div class="block" id="block-photodetector">
+        <h3>Photodetector</h3>
+        <p>Detects reflected light intensity modulated by blood volume.</p>
+      </div>
+      <div class="arrow" aria-hidden="true"></div>
+      <div class="block" id="block-signal-processing">
+        <h3>Signal Processing Unit</h3>
+        <p>Amplifies & filters PPG signals for noise reduction.</p>
+      </div>
+      <div class="arrow" aria-hidden="true"></div>
+      <div class="block" id="block-data-analysis">
+        <h3>Data Analysis</h3>
+        <p>Extracts heart rate & blood flow info; sends to user interface.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Interactive PPG Signal Simulation</h2>
+    <p>
+      Adjust the simulated blood flow pulse amplitude below to see the resulting PPG signal waveform change, mimicking how blood flow affects the sensor reading.
+    </p>
+    <div id="simulation">
+      <canvas id="ppgCanvas" width="850" height="150" aria-label="PPG signal waveform"></canvas>
+      <div class="slider-container">
+        <label for="pulseAmpl">Pulse Amplitude</label>
+        <input type="range" id="pulseAmpl" min="0" max="1" step="0.01" value="0.7" aria-valuemin="0" aria-valuemax="1" aria-valuenow="0.7" aria-label="Pulse amplitude slider" />
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  &copy; 2024 Wearable PPG Design & Simulation - Conceptual Prototype
+</footer>
+
+<script>
+  const canvas = document.getElementById('ppgCanvas');
+  const ctx = canvas.getContext('2d');
+  const width = canvas.width;
+  const height = canvas.height;
+  const pulseSlider = document.getElementById('pulseAmpl');
+
+  // Basic sine wave parameters to simulate PPG waveform
+  let pulseAmplitude = parseFloat(pulseSlider.value);
+  const baseline = height * 0.75;
+  const frequency = 1.5; // Hz - approx heart beats per second (90 BPM)
+  const sampleRate = 1000; // samples per second
+  let time = 0;
+  const dt = 1/sampleRate;
+  let xScale = width / (sampleRate / frequency);
+
+  function drawBackground() {
+    ctx.fillStyle = '#0d1a2c';
+    ctx.fillRect(0, 0, width, height);
+
+    // Draw grid lines for timing
+    ctx.strokeStyle = '#1e2d4a';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    for (let x = 0; x <= width; x += 50) {
+      ctx.moveTo(x, 0);
+      ctx.lineTo(x, height);
+    }
+    for (let y = 0; y <= height; y += 30) {
+      ctx.moveTo(0, y);
+      ctx.lineTo(width, y);
+    }
+    ctx.stroke();
+
+    // Labels
+    ctx.fillStyle = '#4fc3f7';
+    ctx.font = '12px Montserrat, sans-serif';
+    ctx.fillText('Time →', width - 55, height - 5);
+    ctx.fillText('PPG Signal ↓', 5, 15);
+  }
+
+  function drawPPGWaveform(amplitude) {
+    ctx.lineWidth = 3;
+    ctx.strokeStyle = '#82c9ff';
+    ctx.beginPath();
+
+    const samples = width;
+    for(let i = 0; i < samples; i++) {
+      const t = (i / sampleRate);
+      // PPG-like waveform: base sinus + pulse + small ripple
+      // Using a sharper peak using absolute sine powered
+      const pulse = Math.pow(Math.abs(Math.sin(2 * Math.PI * frequency * t)), 3);
+      // Ripple simulates micro-oscillations
+      const ripple = 0.05 * Math.sin(2 * Math.PI * 20 * t);
+
+      const y = baseline - (amplitude * pulse * 80) - (ripple * 30);
+      if(i === 0) {
+        ctx.moveTo(i, y);
+      } else {
+        ctx.lineTo(i, y);
+      }
+    }
+    ctx.stroke();
+  }
+
+  function animate() {
+    drawBackground();
+    drawPPGWaveform(pulseAmplitude);
+  }
+
+  pulseSlider.addEventListener('input', (e) => {
+    pulseAmplitude = parseFloat(e.target.value);
+    animate();
+  });
+
+  // Initial draw
+  animate();
+</script>
+</body>
+</html>
+
