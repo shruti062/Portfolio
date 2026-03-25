@@ -1,0 +1,50 @@
+<!-- artists.html - Jinja version -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artists - Music App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='logo.png') }}" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+</head>
+<body>
+    <div class="music-container container">
+        <div class="music-header d-flex align-items-center justify-content-between py-3">
+            <i class="fa fa-angle-left" aria-hidden="true"></i>
+            <div class="title">
+                <p class="m-0">My Music</p>
+            </div>
+            <div class="search-bar d-flex">
+                <input type="text" id="searchInput" class="form-control" placeholder="Search for artists...">
+                <button id="searchButton" class="btn btn-primary">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="music-menu text-center my-3">
+            <ul class="nav justify-content-center">
+                <li class="nav-item"><a href="{{ url_for('index') }}" class="nav-link">Songs</a></li>
+                <li class="nav-item"><a href="{{ url_for('albums') }}" class="nav-link">Albums</a></li>
+                <li class="nav-item active"><a href="{{ url_for('artists') }}" class="nav-link">Artists</a></li>
+            </ul>
+        </div>
+
+        <div class="row row-cols-2 row-cols-md-4 g-4">
+            {% for artist in artists %}
+            <div class="col text-center">
+                <a href="{{ url_for('song_detail', song_id=artist.id) }}">
+                    <img src="{{ url_for('static', filename=artist.artist_image) }}" alt="{{ artist['artist(s)_name'] }}" class="img-fluid rounded-circle mb-2">
+                    <h6>{{ artist['artist(s)_name'] }}</h6>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='java.js') }}"></script>
+</body>
+</html>

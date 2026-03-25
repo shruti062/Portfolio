@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ song.track_name }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+ <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="manifest" href="{{ url_for('static', filename='site.webmanifest') }}">
+<link rel="apple-touch-icon" href="{{ url_for('static', filename='apple-touch-icon.png') }}">
+
+</head>
+<body>
+  <div class="container d-flex flex-column align-items-center justify-content-center vh-100">
+    <div class="music-player text-center">
+      <nav class="d-flex justify-content-between w-100 mb-4">
+        <div class="circle">
+          <a href="{{ url_for('index') }}"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+        </div>
+        <div class="circle">
+          <i class="fa fa-bars" aria-hidden="true"></i>
+        </div>
+      </nav>
+      <img class="song-img" src="{{ url_for('static', filename='m2.jpg') }}" alt="Song Image">
+
+      <h1 class="fs-4">{{ song.track_name }}</h1>
+      <p class="text-muted">{{ song['artist(s)_name'] }}</p>
+
+      <audio id="song">
+        <source src="{{ song.file_path }}" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <div class="progress-container">
+        <input type="range" id="progress" value="0">
+        <div class="d-flex justify-content-between">
+        </div>
+      </div>
+
+      <div class="controls d-flex justify-content-around align-items-center mt-4">
+        <a href="{{ url_for('song_detail', song_id=song['id'] - 1 if song['id'] > 0 else song['id']) }}" class="btn btn-outline-primary">
+          <i class="fa fa-backward"></i>
+        </a>
+        <div onclick="playPause()">
+          <i class="fa fa-play" id="ctrlIcon"></i>
+        </div>
+        <a href="{{ url_for('song_detail', song_id=song['id'] + 1 if song['id'] < 9 else song['id']) }}" class="btn btn-outline-primary">
+          <i class="fa fa-forward"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+<script>
+  const song = document.getElementById("song");
+  const ctrlIcon = document.getElementById("ctrlIcon");
+
+ function playPause() {
+  if (song.paused) {
+    song.play().catch(err => {
+      console.log("Playback failed:", err);
+    });
+    ctrlIcon.classList.replace("fa-play", "fa-pause");
+  } else {
+    song.pause();
+    ctrlIcon.classList.replace("fa-pause", "fa-play");
+  }
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+</head>
+<body>
+    <div class="container d-flex flex-column align-items-center justify-content-center vh-100">
+        <div class="music-player text-center">
+            <nav class="d-flex justify-content-between w-100 mb-4">
+                <div class="circle">
+                    <a href="music.html"><i class="fa fa-angle-left" aria-hidden="true" aria-label="Back to music list"></i></a>
+                </div>
+                <div class="circle">
+                    <i class="fa fa-bars" aria-hidden="true" aria-label="Menu"></i>
+                </div>
+            </nav>
+            <img src="m2.jpg" class="song-img img-fluid rounded-circle shadow mb-3" alt="Song Image">
+            <h1 class="fs-4">Janiye</h1>
+            <p class="text-muted">Vishal Misra, Rashmeet Kaur</p>
+
+            <!-- Audio Controls -->
+            <audio id="song">
+                <source src="Janiye(PaglaSongs).mp3" type="audio/mpeg">
+            </audio>
+            <div class="progress-container">
+                <input type="range" id="progress" value="0" >
+                <div class="d-flex justify-content-between">
+                    <span id="current-time">0:00</span>
+                    <span id="total-time">0:00</span>
+                </div>
+            </div>
+            <div class="controls d-flex justify-content-around align-items-center mt-4">
+                <a href="s5.html" class="btn btn-outline-primary">
+                    <i class="fa fa-backward" aria-hidden="true"></i>
+                </a>
+                <div onclick="playPause()">
+                    <i class="fa fa-play" aria-hidden="true" id="ctrlIcon"></i>
+                </div>
+                <a href="s7.html" class="btn btn-outline-primary">
+                    <i class="fa fa-forward" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const progress = document.getElementById("progress");
+        const song = document.getElementById("song");
+        const ctrlIcon = document.getElementById("ctrlIcon");
+        const currentTimeDisplay = document.getElementById("current-time");
+        const durationDisplay = document.getElementById("duration");
+
+        // Update progress bar and duration
+        song.onloadedmetadata = function() {
+            progress.max = song.duration;
+            durationDisplay.textContent = formatTime(song.duration);
+        };
+
+        // Play or pause song
+        function playPause() {
+            if (ctrlIcon.classList.contains("fa-pause")) {
+                song.pause();
+                ctrlIcon.classList.replace("fa-pause", "fa-play");
+            } else {
+                song.play();
+                ctrlIcon.classList.replace("fa-play", "fa-pause");
+            }
+        }
+
+        // Update progress bar as song plays
+        song.ontimeupdate = function() {
+            progress.value = song.currentTime;
+            currentTimeDisplay.textContent = formatTime(song.currentTime);
+        };
+
+        // Seek to a different part of the song
+        progress.oninput = function() {
+            song.currentTime = progress.value;
+        };
+
+        // Format time as minutes:seconds
+        function formatTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${minutes}:${secs < 10 ? "0" : ""}${secs}`;
+        }
+    </script>
+</body>
+</html>
