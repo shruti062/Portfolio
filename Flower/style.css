@@ -1,0 +1,253 @@
+@media screen and (max-width:1000px){
+			#toparea, #logoarea, #logoarea i,#titlearea ,#titlearea ul, #titlearea ul li , #titlearea ul li a:link,#titlearea ul li a:visited,#titlearea ul li a:hove, #harea, #harea h1, #harea h2,#harea p, .btn, .btn a:link,.btn a:visited, #area, #area h1, #area p, #area img, #menuarea, #menuarea h1,.marea, .marea img, .marea p, .marea c, #sarea, #sarea p,#conarea,	#conarea h1,#conarea h2,#conarea img, #footerarea,#foot,#foot h5,#foot p,#foot h4, #foot1,#foot1 h5, #foot1 p, #foot1 h4,#foot1 c{
+							width:100%;
+			} 					
+}
+
+*{  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  line-height: 1.6;
+}
+
+#toparea {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #e4abbe;
+  padding: 10px;
+  align-items: center;
+}
+
+#logoarea {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 0 20px;
+}
+
+#logoarea i {
+  font-size: 24px;
+  color: #fff;
+}
+
+.logo-text {
+  font-family: 'Yellowtail', cursive;
+  font-size: 24px;
+  color: #fff;
+}
+
+#titlearea {
+  flex: 4;
+}
+#titlearea{
+width:93%;
+height:60px;
+background:#e4abbe;
+border-left:solid 1px #cf3434;
+float:left;
+flex:4;
+}
+#titlearea ul{
+list-style:none;
+margin:1%;
+display: flex;
+flex-wrap: wrap;
+}
+#titlearea ul li{
+float:left;
+}
+#titlearea ul li a:link,#titlearea ul li a:visited{
+text-decoration:none;
+color:#ff4055;
+background:none;
+display:block;
+padding:10px;
+font-weight: bold;
+}
+#titlearea ul li a:hover{
+background:#ff9595;
+}
+#harea{
+width:100%;
+height:500px;
+background:url('wall.jpg') no-repeat;
+background-size: cover;
+float:left;
+}
+#harea h1{
+margin:100px 0 10px 50px;
+font-size: 2em;
+}
+#harea h2{
+color:#ff6abd;
+margin:0 0 0 50px;
+}
+#harea p{
+color:#837883;
+margin:0 0 0 50px;
+font-family:verdana,geneva,Tahoma,sana-serif;
+text-transform:capitalize;
+}
+.btn{
+display: inline-block;
+margin:20px 0 80px 50px;
+border-radius:50px;
+background:#333338;
+color:white;
+font-weight:bold;
+padding:10px 30px 10px 30px;
+cursor: pointer;
+ transition: background-color 0.3s, transform 0.3s;
+
+}
+.btn a:link,.btn a:visited {
+color:white;
+display:block;
+}
+.btn:hover {
+  background-color: #ff4081;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #ff80c0;
+}
+
+#area {
+  padding: 40px 20px;
+  text-align: center;
+}
+#area h1{
+text-align:center;
+color:#ff80b3;
+font-weight:bold;
+margin: 20px;
+}
+#area p{
+word-spacing:10px;
+margin-left: auto;
+margin-right: auto;
+text-align: justify;
+font-size:20px;
+
+}
+#area img{
+width:30%;
+height:50%;
+float:right;
+margin:0 0 0 20px;
+display:block;
+}
+
+
+#menuarea {
+  padding: 40px 20px;
+  background: #fff0f6;
+  text-align: center;
+}
+
+#menuarea h1 {
+  color: #ff40d2;
+  margin-bottom: 30px;
+}
+
+.marea {
+  display: inline-block;
+  width: 280px;
+  margin: 15px;
+  padding: 10px;
+  border: 2px solid pink;
+  background-color: #fff;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.marea:hover {
+  transform: scale(1.05);
+}
+
+.marea img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.marea img:hover {
+  transform: scale(1.08);
+}
+
+.marea p {
+  margin: 10px 0;
+  font-size: 1.1em;
+  color: #837883;
+}
+
+.marea h3 {
+  color: #837883;
+  font-weight: bold;
+}
+
+/* Statement */
+#sarea {
+  background: #b5aaff;
+  padding: 40px 20px;
+  text-align: center;
+  color: #ff2b5f;
+  font-size: 1.4em;
+}
+
+/* Contact */
+#conarea {
+  padding: 40px 20px;
+  text-align: center;
+}
+#conarea h1 {
+  margin: 10px 0;
+  color: #ff80b3;
+}
+#conarea h2 {
+  margin: 10px 0;
+  color: #837883;
+}
+
+#conarea img {
+  width: 40px;
+  height: auto;
+  margin: 10px;
+}
+
+/* Footer */
+#footerarea {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background-color: #f5f5f5;
+  padding: 40px 20px;
+}
+
+#foot,
+#foot1 {
+  flex: 1 1 300px;
+  margin: 20px;
+}
+
+#foot h5,
+#foot1 h5,
+#foot h4,
+#foot1 h4 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+#foot p,
+#foot1 p,
+#foot1 c {
+  color: #837883;
+  margin: 5px 0;
+}
+

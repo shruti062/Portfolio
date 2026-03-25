@@ -1,0 +1,295 @@
+/* Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #fff;
+  color: #333;
+  line-height: 1.6;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Container */
+#mainarea {
+  width: 100%;
+}
+
+/* Header */
+#toparea {
+  background: url('photo.jpeg') no-repeat center center/cover;
+  padding: 60px 20px;
+  color: white;
+  text-align: center;
+  position: relative;
+}
+
+#logoarea img {
+  width: 70px;
+  height: auto;
+}
+
+#titlearea ul {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+  list-style: none;
+}
+
+#titlearea ul li a {
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  font-weight: 500;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+#titlearea ul li a:hover {
+  background: white;
+  color: #333;
+}
+
+/* Hero Text */
+#toparea h1 {
+  font-size: 2.8rem;
+  margin-top: 30px;
+  color: #ffeb3b;
+}
+
+#toparea h2 {
+  color: #a2f5c8;
+  margin: 10px 0;
+}
+
+#toparea p {
+  font-size: 1.1rem;
+  margin-top: 10px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 12px 30px;
+  background-color: #ffee07;
+  color: #333;
+  font-weight: 600;
+  border-radius: 30px;
+  transition: 0.3s;
+}
+.btn:hover {
+  background-color: #ff9800;
+  color: white;
+}
+/* About Section */
+#carea {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: black;
+  padding: 50px 20px;
+  align-items: center;
+  gap: 30px;
+}
+
+#carea img {
+  width: 40%;
+  max-width: 500px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(240, 238, 238, 0.968);
+}
+
+#c1 {
+  flex: 1;
+}
+
+#c1 h1 {
+  font-size: 2rem;
+  color: red;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+#c1 p {
+  font-size: 1rem;
+  color: #fff6f6;
+  margin-bottom: 15px;
+  line-height: 1.7;
+}
+
+
+
+/* Speciality Cards */
+#sarea {
+  background: black;
+  padding: 60px 20px;
+  text-align: center;
+}
+#sarea h1 {
+  font-size: 2rem;
+  color:#ff0000;
+  margin-bottom: 40px;
+}
+.karea {
+  display: inline-block;
+  width: 280px;
+  background: #222;
+  color: white;
+  margin: 15px;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: 0.3s ease;
+  box-shadow: 0 5px 15px rgba(240, 238, 238, 0.968);
+}
+.karea:hover {
+  transform: translateY(-10px);
+}
+
+.sarea img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  transition: 0.3s ease;
+}
+.sarea img:hover {
+  transform: scale(1.05);
+}
+.sarea {
+  padding: 15px;
+}
+.sarea p {
+  font-size: 0.95rem;
+  margin-top: 10px;
+}
+
+/* Gallery */
+#menuarea {
+  background: black;
+  padding: 50px 20px;
+  text-align: center;
+}
+#menuarea h1 {
+  color: red;
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+.marea {
+  display: inline-block;
+  width: 250px;
+  margin: 15px;
+  transition: transform 0.3s ease;
+}
+.marea img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(240, 238, 238, 0.968);
+}
+.marea img:hover {
+  transform: scale(1.05);
+}
+
+/* Contact Section */
+#darea {
+  background: url('img.jpg') no-repeat center center/cover;
+  color: #ffffff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+#darea h1 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+#darea h2 {
+  font-size: 1.2rem;
+  margin: 15px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+#darea h2 img {
+  width: 24px;
+  height: 24px;
+}
+
+/* Footer */
+#footarea {
+  background: #111;
+  color: #fff;
+  padding: 30px 20px;
+  text-align: center;
+}
+#footarea img {
+  width: 35px;
+  margin: 10px;
+}
+#foot1 img {
+  width: 100px;
+  margin: 10px auto;
+}
+#foot2 {
+  margin-top: 20px;
+}
+#foot2 p {
+  margin: 10px 0;
+}
+#foot2 ul {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  list-style: none;
+  padding: 0;
+}
+#foot2 a {
+  color: #fff;
+}
+#foot2 a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  #titlearea ul {
+    flex-direction: column;
+  }
+
+  .karea,
+  .marea {
+    width: 90%;
+  }
+
+  #toparea h1 {
+    font-size: 2rem;
+  }
+  #carea {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  #carea img {
+    width: 90%;
+  }
+
+  #c1 h1 {
+    text-align: center;
+  }
+  #darea h2 {
+    flex-direction: column;
+    gap: 5px;
+  }
+}
+

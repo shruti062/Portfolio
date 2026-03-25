@@ -1,0 +1,197 @@
+/* ✅ Base */
+body {
+  font-family: 'Prompt', sans-serif;
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ✅ Header */
+.toparea {
+  background: #fff;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.toparea img {
+  width: 70px;
+  border-radius: 8px;
+}
+
+.navbar-nav .nav-link {
+  color: #666 !important;
+  font-weight: 500;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-item.active .nav-link {
+  background-color: #df4125;
+  color: #fff !important;
+  border-radius: 5px;
+  padding: 5px 10px;
+  transition: 0.3s ease-in-out;
+}
+
+/* ✅ Form Styling */
+.form-inline input[type="search"] {
+  border-radius: 30px;
+  padding: 5px 15px;
+}
+
+.form-inline button {
+  background: #df4125;
+  color: white;
+  border-radius: 30px;
+  padding: 5px 15px;
+  border: none;
+}
+
+/* ✅ Section Titles */
+section h1 {
+  text-align: center;
+  font-family: 'Yellowtail', cursive;
+  color: #df4125;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+}
+
+/* ✅ About Section */
+.a1 p {
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.8;
+}
+
+/* ✅ Sweets & Gallery Boxes */
+.box,
+.barea {
+  border-radius: 20px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s;
+}
+
+.box:hover img,
+.barea img:hover {
+  transform: scale(1.05);
+}
+
+.box img,
+.barea img {
+  width: 100%;
+  transition: transform 0.3s ease-in-out;
+  display: block;
+}
+
+.boxarea p {
+  text-align: center;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+/* ✅ Video Section */
+.varea iframe {
+  width: 100%;
+  border-radius: 12px;
+}
+
+/* ✅ Contact Section */
+.con form {
+  margin-top: 30px;
+}
+
+.con .form-control {
+  margin-bottom: 15px;
+  border-radius: 8px;
+  box-shadow: none;
+  border: 1px solid #ccc;
+}
+
+.con button {
+  background-color: #df4125;
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 30px;
+  border: none;
+}
+
+.con h6 {
+  font-weight: 600;
+  color: #444;
+}
+
+/* ✅ Footer */
+.foot {
+  background-color: #f8f8f8;
+  padding: 40px 0;
+  font-size: 15px;
+}
+
+.foot h6 {
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.foot ul {
+  list-style: none;
+  padding: 0;
+}
+
+.foot ul li {
+  margin: 6px 0;
+}
+
+.foot ul li a {
+  color: #555;
+  text-decoration: none;
+}
+
+.foot ul li a:hover {
+  color: #df4125;
+}
+
+.foot img {
+  width: 30px;
+  margin-right: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.foot img:hover {
+  transform: scale(1.1);
+}
+
+/* ✅ Responsive */
+@media (max-width: 768px) {
+  .toparea img {
+    width: 50px;
+  }
+
+  .form-inline {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .form-inline .form-control,
+  .form-inline button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .a1 h1 {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .boxarea .col-md-3,
+  .varea .col-md-6,
+  .Garea .col-md-4 {
+    margin-bottom: 20px;
+  }
+}
