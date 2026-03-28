@@ -61,7 +61,8 @@ A simulation-based project demonstrating non-invasive blood flow monitoring usin
 * Showcases multiple domain projects (Web, Android, Core)
 * Easy navigation and responsive layout
 
----
+🌐 Live Demo
+https://soft-sorbet-f8f3e1.netlify.app/
 
 ## 👩‍💻 Author
 
