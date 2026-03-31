@@ -670,7 +670,11 @@ body {
 .btn:hover {
   background: #0d5f5a;
 }
-
+/* HAMBURGER */
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+}
 .hero {
   padding: 8rem 0 6rem;
   text-align: center;
