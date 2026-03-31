@@ -37,20 +37,6 @@ img {
   transition: 0.3s ease-in-out;
 }
 
-/* ✅ Form Styling */
-.form-inline input[type="search"] {
-  border-radius: 30px;
-  padding: 5px 15px;
-}
-
-.form-inline button {
-  background: #df4125;
-  color: white;
-  border-radius: 30px;
-  padding: 5px 15px;
-  border: none;
-}
-
 /* ✅ Section Titles */
 section h1 {
   text-align: center;

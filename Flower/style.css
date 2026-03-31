@@ -4,6 +4,7 @@
 			} 					
 }
 
+/* ================= GLOBAL ================= */
 *{  
   margin: 0;
   padding: 0;
@@ -12,135 +13,269 @@
 
 body {
   line-height: 1.6;
+  font-family: Arial, sans-serif;
 }
 
+/* ================= TOP AREA ================= */
 #toparea {
   display: flex;
   flex-wrap: wrap;
-  background-color: #e4abbe;
-  padding: 10px;
+  justify-content: space-between;
   align-items: center;
+  background-color: #e4abbe;
+  padding: 10px 20px;
 }
 
+/* LOGO */
 #logoarea {
   display: flex;
   align-items: center;
   gap: 10px;
   color: #fff;
-  font-size: 1.2em;
-  font-weight: bold;
-  padding: 0 20px;
 }
 
 #logoarea i {
   font-size: 24px;
-  color: #fff;
 }
 
 .logo-text {
   font-family: 'Yellowtail', cursive;
-  font-size: 24px;
-  color: #fff;
+  font-size: 26px;
 }
 
-#titlearea {
-  flex: 4;
+/* NAVBAR */
+#titlearea ul {
+  list-style: none;
+  display: flex;
+  gap: 10px;
 }
-#titlearea{
-width:93%;
-height:60px;
-background:#e4abbe;
-border-left:solid 1px #cf3434;
-float:left;
-flex:4;
+
+#titlearea ul li a {
+  text-decoration: none;
+  color: #ff4055;
+  padding: 10px 15px;
+  font-weight: bold;
+  transition: 0.3s;
 }
-#titlearea ul{
-list-style:none;
-margin:1%;
-display: flex;
-flex-wrap: wrap;
+
+#titlearea ul li a:hover {
+  background:#ff4081;
+  color:white;
+  border-radius: 5px;
 }
-#titlearea ul li{
-float:left;
-}
-#titlearea ul li a:link,#titlearea ul li a:visited{
-text-decoration:none;
-color:#ff4055;
-background:none;
-display:block;
-padding:10px;
-font-weight: bold;
-}
-#titlearea ul li a:hover{
-background:#ff9595;
-}
+
+/* ================= HERO ================= */
 #harea{
-width:100%;
-height:500px;
-background:url('wall.jpg') no-repeat;
-background-size: cover;
-float:left;
+  width:100%;
+  height:500px;
+  background:url('wall.jpg') no-repeat center/cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 50px;
 }
-#harea h1{
-margin:100px 0 10px 50px;
-font-size: 2em;
-}
-#harea h2{
-color:#ff6abd;
-margin:0 0 0 50px;
-}
-#harea p{
-color:#837883;
-margin:0 0 0 50px;
-font-family:verdana,geneva,Tahoma,sana-serif;
-text-transform:capitalize;
-}
-.btn{
-display: inline-block;
-margin:20px 0 80px 50px;
-border-radius:50px;
-background:#333338;
-color:white;
-font-weight:bold;
-padding:10px 30px 10px 30px;
-cursor: pointer;
- transition: background-color 0.3s, transform 0.3s;
 
+#harea h1{
+  font-size: 2.5em;
 }
-.btn a:link,.btn a:visited {
-color:white;
-display:block;
+
+#harea h2{
+  color:#ff6abd;
 }
+
+#harea p{
+  color:#555;
+  max-width: 600px;
+}
+
+/* BUTTON */
+.btn{
+  margin-top:20px;
+  border-radius:50px;
+  background:#333338;
+  color:white;
+  font-weight:bold;
+  padding:10px 30px;
+  cursor: pointer;
+  border:none;
+  transition:0.3s;
+}
+
 .btn:hover {
   background-color: #ff4081;
   transform: scale(1.05);
   box-shadow: 0 0 10px #ff80c0;
 }
 
+/* ================= ABOUT ================= */
 #area {
   padding: 40px 20px;
   text-align: center;
 }
-#area h1{
-text-align:center;
-color:#ff80b3;
-font-weight:bold;
-margin: 20px;
-}
-#area p{
-word-spacing:10px;
-margin-left: auto;
-margin-right: auto;
-text-align: justify;
-font-size:20px;
 
+#area h1{
+  color:#ff80b3;
+  margin-bottom:20px;
 }
+
+#area-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
 #area img{
-width:30%;
-height:50%;
-float:right;
-margin:0 0 0 20px;
-display:block;
+  width:40%;
+  border-radius:10px;
+}
+
+#area p{
+  font-size:18px;
+  text-align: justify;
+}
+
+/* ================= PRODUCTS ================= */
+#menuarea {
+  padding: 40px 20px;
+  background: #fff0f6;
+  text-align: center;
+}
+
+#menuarea h1 {
+  color: #ff40d2;
+  margin-bottom: 30px;
+}
+
+.marea {
+  display: inline-block;
+  width: 280px;
+  margin: 15px;
+  padding: 10px;
+  border: 2px solid pink;
+  background-color: #fff;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.marea:hover {
+  transform: scale(1.05);
+}
+
+.marea img {
+  width: 100%;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.marea img:hover {
+  transform: scale(1.1);
+}
+
+.marea p {
+  margin: 10px 0;
+  color: #555;
+}
+
+.marea h3 {
+  color: #333;
+}
+
+/* ================= STATEMENT ================= */
+#sarea {
+  background: #b5aaff;
+  padding: 40px 20px;
+  text-align: center;
+  color: #ff2b5f;
+  font-size: 1.4em;
+}
+
+/* ================= CONTACT ================= */
+#conarea {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+#conarea h1 {
+  color: #ff80b3;
+}
+
+#conarea h2 {
+  color: #555;
+}
+
+#conarea img {
+  width: 40px;
+  margin: 10px;
+}
+
+/* ================= FOOTER ================= */
+#footerarea {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background-color: #f5f5f5;
+  padding: 40px 20px;
+}
+
+#foot, #foot1 {
+  flex: 1 1 300px;
+}
+
+#foot h5, #foot1 h5,
+#foot h4, #foot1 h4 {
+  margin-bottom: 10px;
+}
+
+#foot p, #foot1 p {
+  color: #555;
+}
+
+/* ================= MOBILE RESPONSIVE ================= */
+@media screen and (max-width:768px){
+
+  /* NAVBAR FIX */
+  #toparea {
+    flex-direction: column;
+  }
+
+  #titlearea ul {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  #titlearea ul li {
+    text-align: center;
+    width: 100%;
+  }
+
+  #titlearea ul li a {
+    display: block;
+    border-top: 1px solid #fff;
+  }
+
+  /* HERO */
+  #harea {
+    height: auto;
+    padding: 20px;
+  }
+
+  #harea h1 {
+    font-size: 1.8em;
+  }
+
+  /* ABOUT */
+  #area-content {
+    flex-direction: column;
+  }
+
+  #area img {
+    width: 90%;
+  }
+
+  #area p {
+    font-size: 16px;
+  }
+
 }
 
 
